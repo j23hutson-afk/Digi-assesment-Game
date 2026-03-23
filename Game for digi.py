@@ -8,6 +8,10 @@ def cls(): print ("\n" * 100)
 main_loop=True
 action_loop=False
 
+axe_lv=1
+
+pick_lv=1
+
 wood=0
 wood_lv=1
 wood_xp=0
@@ -24,7 +28,7 @@ name=input(str('What is your name? \n'))
 
 while main_loop == True:
     cls()
-    menu=int(input(f'Main menu \n1.Actions \n2.Inventory \n3.Stats \n'))
+    menu=int(input(f'Main menu \n1.Tasks \n2.Inventory \n3.Stats \n4.Craft \n'))
     if menu==1:
         action_loop=True
         
@@ -35,7 +39,7 @@ while main_loop == True:
             act=int(input(f'What would you like to do? \n1.Chop wood \n2.Mine stone\n0.Menu \n'))
             
             if act==1:
-                wood+=wood_lv
+                wood+=wood_lv+axe_lv
                 wood_xp+=1
                 
                 if wood_xp==10*wood_lv:
@@ -44,7 +48,7 @@ while main_loop == True:
                     level_up=True
                     
             elif act==2:
-                stone+=stone_lv
+                stone+=stone_lv+pick_lv
                 stone_xp+=1
                 
                 if stone_xp==10*stone_lv:
@@ -58,10 +62,24 @@ while main_loop == True:
     elif menu==2:
         cls()
         print(f'Wood={wood} \nStone={stone}')
-        x=str(input('type anything to countinue'))
+        x=str(input('type anything to return'))
         
     elif menu==3:
         cls()
         print(f'Wood level\{wood_lv} \n 		{wood_xp}\{10*wood_lv}')
         print(f'Stone level\{stone_lv} \n 		{stone_xp}\{10*stone_lv}')
         x=str(input('type anything to countinue'))
+    elif menu==4:
+        cls()
+        print('what do you want to make.')
+        x=int(input('1.axe \n2.pickaxe \n0.nothing(exit)'))
+        if x==1:
+            print(f'To upgrade axe you need {axe_lv*10} wood and {axe_lv*4} stone')
+            x=int(input('1.upgrade axe \n 2.cancel \n')
+            if x==1:
+                  if wood<=axe_lv*10 and stone<=axe_lv*4:
+                      axe_lv+=1
+                      print('axe crafted')
+                  elif wood<=axe_lv*10 and stone<=axe_lv*4:
+                  elif wood<=axe_lv*10 and stone<=axe_lv*4:
+                  else
